@@ -9,6 +9,7 @@ let deck       = [];
 const types    = ['C', 'D', 'H', 'S'];
 const specials = ['A', 'J', 'Q', 'K'];
 
+// This function creates a deck of cards
 const createDeck = () => {
     for (let i = 2; i <= 10; i++) {
         for (const type of types) {
@@ -22,9 +23,25 @@ const createDeck = () => {
         }
     }
 
-    console.log(deck);
     deck = _.shuffle(deck);
     console.log(deck);
+    return deck
 }
 
 createDeck();
+
+// This function allows me to draw a card.
+const drawCard = () => {
+    if (deck.length === 0) {
+        throw 'There is no card in deck'
+    }
+
+    const card = deck.pop();
+    
+    console.log(deck)
+    console.log(card)
+    
+    return card;
+}
+
+drawCard();
