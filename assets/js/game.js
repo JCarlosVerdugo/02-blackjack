@@ -24,7 +24,6 @@ const createDeck = () => {
     }
 
     deck = _.shuffle(deck);
-    console.log(deck);
     return deck
 }
 
@@ -44,4 +43,13 @@ const drawCard = () => {
     return card;
 }
 
-drawCard();
+const valueCard = (card) => {
+    const value = card.substring(0, card.length -1);
+    return (isNaN(value)) ? 
+           (value == 'A') ? 11 : 10
+           : Number(value);
+}
+
+const card = drawCard();
+const value = valueCard(card);
+console.log({value})
